@@ -9,13 +9,21 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 
 # Data Path Init
-items.path <- "./items.csv"
-category_hierarchy.path <- "./category_hierarchy.csv"
-orders.path <- "./orders.csv"
+items.path <- "./data/items.csv"
+category_hierarchy.path <- "./data/category_hierarchy.csv"
+orders.path <- "./data/orders.csv"
 
 # Load Datasets
 items <- read.csv(items.path, sep="|")
 category_hierarchy <- read.csv(category_hierarchy.path, sep="|")
 orders <- read.csv(orders.path, sep="|")
 ```
+
+
+```{r}
+head(items)
+head(category_hierarchy)
+head(orders)
+```
+
 
