@@ -1,0 +1,21 @@
+---
+title: "DMC Explore"
+author: "Jackson Cown"
+date: '2022-05-17'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# Data Path Init
+items.path <- "./items.csv"
+category_hierarchy.path <- "./category_hierarchy.csv"
+orders.path <- "./orders.csv"
+
+# Load Datasets
+items <- read.csv(items.path, sep="|")
+category_hierarchy <- read.csv(category_hierarchy.path, sep="|")
+orders <- read.csv(orders.path, sep="|")
+```
+
