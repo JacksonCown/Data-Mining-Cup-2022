@@ -29,3 +29,54 @@ head(orders)
 ```
 
 
+
+```{r}
+library(lubridate)
+library(tibble)
+
+# Randomly sample some data to viz
+set.seed(42); dates <- sample(orders$date, 1000)
+set.seed(42); orders.sample <- sample(orders$order, 1000)
+
+tibble(date = dates,
+       month = month(dates),
+       day = day(dates),
+       year = year(dates))
+
+(month(dates, label=TRUE))
+
+months <- c(6, 7, 8, 9, 10, 11, 12, 1)
+date.set <- dates[order(!duplicated(dates))]
+print(date.set)
+barplot(date.set ~ orders.sample)
+```
+
+#### Created new date_orders.csv for visualization in Python with Pandas
+
+- See .ipynb file for implementation.
+
+```{r}
+date_order.path <- "../data/date_orders.csv"
+date_order <- read.csv(date_order.path)
+barplot(num_orders ~ X, date_order,
+        ylab="# of Orders",
+        xlab="# of Days Since 2020-06-01",
+        main="Number of Orders Vs. Number of Days Since 2020-06-01")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
