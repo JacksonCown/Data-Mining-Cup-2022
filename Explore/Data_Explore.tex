@@ -165,4 +165,27 @@
 ## 6 2020-06-01  42535  12919     1
 \end{verbatim}
 
+\hypertarget{created-new-date_orders.csv-for-visualization-in-python-with-pandas}{%
+\paragraph{Created new date\_orders.csv for visualization in Python with
+Pandas}\label{created-new-date_orders.csv-for-visualization-in-python-with-pandas}}
+
+\begin{itemize}
+\tightlist
+\item
+  See .ipynb file for implementation.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{date\_order.path }\OtherTok{\textless{}{-}} \StringTok{"../data/date\_orders.csv"}
+\NormalTok{date\_order }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(date\_order.path)}
+\FunctionTok{barplot}\NormalTok{(num\_orders }\SpecialCharTok{\textasciitilde{}}\NormalTok{ X, date\_order,}
+        \AttributeTok{ylab=}\StringTok{"\# of Orders"}\NormalTok{,}
+        \AttributeTok{xlab=}\StringTok{"\# of Days Since 2020{-}06{-}01"}\NormalTok{,}
+        \AttributeTok{main=}\StringTok{"Number of Orders Vs. Number of Days Since 2020{-}06{-}01"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Data_Explore_files/figure-latex/unnamed-chunk-2-1.pdf}
+
 \end{document}
