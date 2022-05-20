@@ -10,6 +10,7 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
+
 # Data Path Init
 items.path <- "../data/items.csv"
 category_hierarchy.path <- "../data/category_hierarchy.csv"
@@ -41,14 +42,32 @@ barplot(num_orders ~ X, date_order,
         main="Number of Orders Vs. Number of Days Since 2020-06-01")
 ```
 
+```{r}
+bp <- barplot(num_orders ~ date, date_order,
+        ylab="# of Orders",
+        xlab="Date of Orders",
+        main="Number of Orders Vs. Time")
+```
+
+### Visualizing Monthly Trends
+
+```{r}
+month_order.path <- "../data/month_orders.csv"
+month_order <- read.csv(month_order.path)
+month_order$month <- factor(month_order$month, levels=month_order$month)
+head(month_order)
+```
 
 
+```{r}
+library(ggplot2)
+library(RColorBrewer)
+colors <- brewer.pal(8, "RdBu") 
 
+g <- ggplot(month_order, aes(x=month, y=num_orders)) + geom_bar(stat="identity", fill=colors)
 
-
-
-
-
+g + ggtitle("Total # of Orders per Month") + labs(y="# of Orders", x="Month")
+```
 
 
 
