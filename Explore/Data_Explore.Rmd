@@ -69,7 +69,9 @@ g <- ggplot(month_order, aes(x=month, y=num_orders)) + geom_bar(stat="identity",
 g + ggtitle("Total # of Orders per Month") + labs(y="# of Orders", x="Month")
 ```
 
+```{r}
 
+```
 
 
 
