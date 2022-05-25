@@ -70,10 +70,28 @@ g + ggtitle("Total # of Orders per Month") + labs(y="# of Orders", x="Month")
 ```
 
 ```{r}
-
+item_orders.path <- "../data/item_orders.csv"
+item_orders <- read.csv(item_orders.path)
+# g <- ggplot(item_orders, aes(x=itemID, y=num_orders)) + geom_bar(stat="identity")
+#g + ggtitle("Total # of Orders per Month") + labs(y="# of Orders", x="Month")
+barplot(num_orders ~ itemID, item_orders,
+        xlab="Item ID",
+        ylab="Number of Orders",
+        main="Number of Orders per ItemID  (2020-06-01 to 2021-1-31)")
 ```
 
+```{r}
+colors <- brewer.pal(10, "Paired") 
+item_orders_nlargest.path <- "../data/item_orders_nlargest.csv"
+item_orders_nlargest <- read.csv(item_orders_nlargest.path)
+barplot(num_orders ~ itemID, data=item_orders_nlargest,
+        xlab="Item ID",
+        ylab="Number of Orders",
+        main="Number of Orders Per Item ID of Top 10 Most Sold Items",
+        cex.names=0.8,
+        col=colors)
 
+```
 
 
 
