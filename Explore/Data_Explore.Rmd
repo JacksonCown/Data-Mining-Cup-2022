@@ -93,6 +93,83 @@ barplot(num_orders ~ itemID, data=item_orders_nlargest,
 
 ```
 
+```{r}
+user_orders.path <- "../data/user_orders.csv"
+user_orders <- read.csv(user_orders.path)
+```
+
+```{r}
+user_orders.mean <- mean(user_orders$num_orders)
+
+barplot(num_orders ~ userID, user_orders,
+        xlab="User ID",
+        ylab="# of Orders",
+        main="Number of Orders per UserID (2020-06-01 to 2021-1-31)")
+legend(x = "topright",
+       legend = "Mean # of Orders",
+       lty = 5,
+       lwd=2,
+       col="red",
+       cex=0.65)
+abline(h=user_orders.mean, col="red", lty=5, lwd=2)
+```
+
+```{r}
+colors <- brewer.pal(10, "Paired") 
+user_orders_nlargest.path <- "../data/user_orders_nlargest.csv"
+user_orders_nlargest <- read.csv(user_orders_nlargest.path)
+barplot(num_orders ~ userID, data=user_orders_nlargest,
+        xlab="User ID",
+        ylab="Number of Orders",
+        main="Number of Orders Per User ID of Top 10 Purchasing Users",
+        cex.names=0.8,
+        col=colors)
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
